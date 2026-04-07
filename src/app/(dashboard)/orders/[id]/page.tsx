@@ -28,6 +28,7 @@ const ALL_STATUSES = Object.keys(STATUS_LABEL)
 type OrderItem = {
   productId: string
   variantId?: string
+  variantLabel?: string
   name: string
   quantity: number
   price_in_cents: number
@@ -98,7 +99,6 @@ export default function OrderDetailPage() {
       </div>
 
       <div className="flex flex-col gap-6">
-        {/* Status */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="font-semibold text-gray-700 mb-4">Status do pedido</h2>
           <div className="flex items-center gap-4">
@@ -119,7 +119,6 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* Cliente */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="font-semibold text-gray-700 mb-4">Cliente</h2>
           <div className="grid grid-cols-2 gap-4 text-sm">
@@ -140,7 +139,6 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* Itens */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="font-semibold text-gray-700 mb-4">Itens ({order.items.length})</h2>
           <div className="flex flex-col gap-2">
@@ -148,6 +146,9 @@ export default function OrderDetailPage() {
               <div key={i} className="flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg text-sm">
                 <div>
                   <p className="font-medium text-gray-800">{item.name}</p>
+                  {item.variantLabel && (
+                    <p className="text-xs text-amber-600 font-medium">{item.variantLabel}</p>  
+                  )}
                   <p className="text-xs text-gray-400">Qtd: {item.quantity}</p>
                 </div>
                 <p className="font-medium text-gray-800">
@@ -157,7 +158,6 @@ export default function OrderDetailPage() {
             ))}
           </div>
 
-          {/* Totais */}
           <div className="mt-4 pt-4 border-t border-gray-100 flex flex-col gap-1 text-sm">
             <div className="flex justify-between text-gray-500">
               <span>Subtotal</span>
@@ -174,7 +174,6 @@ export default function OrderDetailPage() {
           </div>
         </div>
 
-        {/* Pagamento + Entrega */}
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-white rounded-xl shadow-sm p-6">
             <h2 className="font-semibold text-gray-700 mb-3">Pagamento</h2>
