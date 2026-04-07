@@ -201,10 +201,14 @@ export default function OrderDetailPage() {
               <div>
                 <p className="text-gray-500">Endereço</p>
                 <p className="font-medium text-gray-800">
-                  {address?.street}, {address?.number}
+                  {address?.address}, {address?.number}
+                  {address?.complement ? `, ${address.complement}` : ''}
                 </p>
                 <p className="text-xs text-gray-400">
-                  {address?.city} - {address?.state}, {address?.zipCode}
+                {address?.neighborhood} — {address?.city}/{address?.state} — CEP {address?.cep}
+                </p>
+                <p className="text-xs text-gray-400">
+                {address?.firstName} {address?.lastName} · {address?.phone}
                 </p>
               </div>
               {order.shippingDays && (
