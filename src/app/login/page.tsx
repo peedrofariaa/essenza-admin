@@ -29,6 +29,9 @@ export default function LoginPage() {
       const data = await res.json()
 
       if (!res.ok) throw new Error(data.message || 'Erro ao fazer login')
+      if (data.user?.role !== 'ADMIN') {
+        throw new Error('Acesso restrito ao painel administrativo')
+      }
 
       localStorage.setItem('admin_token', data.token)
       router.push('/')

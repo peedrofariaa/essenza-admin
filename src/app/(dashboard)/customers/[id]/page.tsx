@@ -36,6 +36,7 @@ type Customer = {
   email: string
   cpf: string
   birth: string
+  role: string
   criadoEm: string
   orders: Order[]
 }
@@ -72,13 +73,16 @@ export default function CustomerDetailPage() {
       </div>
 
       <div className="flex flex-col gap-6">
-        {/* Dados */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="font-semibold text-gray-700 mb-4">Dados do cliente</h2>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <p className="text-gray-500">Email</p>
               <p className="font-medium text-gray-800">{customer.email}</p>
+            </div>
+            <div>
+              <p className="text-gray-500">Role</p>
+              <p className="font-medium text-gray-800">{customer.role}</p>
             </div>
             <div>
               <p className="text-gray-500">CPF</p>
@@ -99,7 +103,6 @@ export default function CustomerDetailPage() {
           </div>
         </div>
 
-        {/* Resumo */}
         <div className="grid grid-cols-3 gap-4">
           <div className="bg-white rounded-xl shadow-sm p-4 text-center">
             <p className="text-2xl font-bold text-gray-800">{customer.orders.length}</p>
@@ -119,7 +122,6 @@ export default function CustomerDetailPage() {
           </div>
         </div>
 
-        {/* Pedidos */}
         <div className="bg-white rounded-xl shadow-sm p-6">
           <h2 className="font-semibold text-gray-700 mb-4">
             Histórico de pedidos ({customer.orders.length})

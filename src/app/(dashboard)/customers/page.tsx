@@ -8,6 +8,7 @@ type Customer = {
   name: string
   email: string
   cpf: string
+  role: string
   criadoEm: string
   _count: { orders: number }
 }
@@ -44,6 +45,7 @@ export default function CustomersPage() {
           <thead className="bg-gray-50 border-b border-gray-100">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cliente</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Role</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CPF</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pedidos</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cadastro</th>
@@ -66,6 +68,15 @@ export default function CustomersPage() {
                 <td className="px-6 py-4">
                   <p className="font-medium text-gray-800">{c.name}</p>
                   <p className="text-xs text-gray-400">{c.email}</p>
+                </td>
+                <td className="px-6 py-4">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    c.role === 'ADMIN'
+                      ? 'bg-amber-100 text-amber-700'
+                      : 'bg-gray-100 text-gray-500'
+                  }`}>
+                    {c.role === 'ADMIN' ? 'Admin' : 'Cliente'}
+                  </span>
                 </td>
                 <td className="px-6 py-4 text-gray-600 font-mono text-xs">{c.cpf}</td>
                 <td className="px-6 py-4">
