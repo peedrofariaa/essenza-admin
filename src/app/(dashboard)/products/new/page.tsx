@@ -78,7 +78,7 @@ export default function NewProductPage() {
     try {
       const token = localStorage.getItem('admin_token')
 
-      const res = await fetch('http://localhost:3001/products', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
