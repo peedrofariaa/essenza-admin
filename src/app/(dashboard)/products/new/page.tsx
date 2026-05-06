@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 
-const CATEGORIES = ['VELAS', 'CORPO_BANHO', 'DECORACAO', 'AROMATIZADORES']
+const CATEGORIES = ['VELAS', 'CORPO_BANHO', 'DECORACAO', 'AROMATIZADORES', 'KITS']
 
 type ImageField = { url: string; alt: string; position: number }
 type VariantField = { label: string; aroma: string; color: string; stock: number }

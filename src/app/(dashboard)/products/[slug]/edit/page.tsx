@@ -37,7 +37,8 @@ const CATEGORIES = [
   "VELAS",
   "CORPO_BANHO",
   "DECORACAO",
-  "AROMATIZADORES"
+  "AROMATIZADORES",
+  "KITS"
 ]
 
 const EMPTY_IMAGE = { url: '', alt: '', position: 0 }
